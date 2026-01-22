@@ -91,6 +91,7 @@ function goBack() {
 if (document.getElementById("parcelList")) loadParcels();
 if (document.getElementById("parcelDetail")) loadParcelDetail();
 function saveParcel() {
+  let amount = document.getElementById("amount").value;
   let cn = document.getElementById("cn").value;
   let sender = document.getElementById("sender").value;
   let receiver = document.getElementById("receiver").value;
