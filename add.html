@@ -2,21 +2,30 @@
 <html>
 <head>
   <title>Add Parcel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-  <h2>Add Parcel</h2>
+<h2>Add Parcel</h2>
 
-  <input type="number" id="amount" placeholder="Amount (COD)">
+<input type="text" id="cn" placeholder="Scan QR / Barcode" readonly>
+<button onclick="startScan()">📷 Scan QR / Barcode</button>
 
+<input type="text" id="name" placeholder="Customer Name">
+<input type="text" id="address" placeholder="Address">
+<input type="text" id="contact" placeholder="Contact Number">
+<input type="number" id="amount" placeholder="Amount (COD)">
 
-  <button onclick="saveParcel()">Save Parcel</button>
-  <button onclick="goBack()">Back</button>
-</div>
+<select id="status">
+  <option value="Pending">Pending</option>
+  <option value="Delivered">Delivered</option>
+  <option value="Returned">Returned</option>
+</select>
 
+<button onclick="saveParcel()">Save Parcel</button>
+<button onclick="goBack()">Back</button>
+
+<script src="https://unpkg.com/html5-qrcode"></script>
 <script src="script.js"></script>
 </body>
 </html>
