@@ -6,33 +6,42 @@
 </head>
 <body>
 
-<h2>Add Parcel</h2>
+<div class="container">
 
-<!-- 1️⃣ Name first -->
-<input type="text" id="name" placeholder="Customer Name">
+  <h2>➕ Add Parcel</h2>
 
-<!-- 2️⃣ QR / Barcode scan -->
-<input type="text" id="cn" placeholder="Scan QR / Barcode" readonly>
-<button onclick="startScan()">📷 Scan QR / Barcode</button>
+  <label>Name</label>
+  <input type="text" id="name" placeholder="Customer Name">
 
-<!-- 3️⃣ Other fields -->
-<input type="text" id="address" placeholder="Address">
-<input type="text" id="contact" placeholder="Contact Number">
-<input type="number" id="amount" placeholder="Amount (COD)">
+  <label>QR / Barcode</label>
+  <div class="scan-box">
+    <input type="text" id="cn" placeholder="Scan QR / Barcode" readonly>
+    <button class="scan-btn" onclick="startScan()">📷 Scan</button>
+  </div>
 
-<!-- 4️⃣ Status -->
-<select id="status">
-  <option value="Pending">Pending</option>
-  <option value="Delivered">Delivered</option>
-  <option value="Returned">Returned</option>
-</select>
+  <label>Address</label>
+  <input type="text" id="address" placeholder="Delivery Address">
 
-<button onclick="saveParcel()">Save Parcel</button>
-<button onclick="goBack()">Back</button>
+  <label>Contact #</label>
+  <input type="tel" id="contact" placeholder="03XXXXXXXXX">
+
+  <label>Amount (COD)</label>
+  <input type="number" id="amount" placeholder="Enter Amount">
+
+  <label>Status</label>
+  <select id="status">
+    <option value="Pending">Pending</option>
+    <option value="Delivered">Delivered</option>
+    <option value="Returned">Returned</option>
+  </select>
+
+  <button class="primary-btn" onclick="saveParcel()">💾 Save Parcel</button>
+  <button class="secondary-btn" onclick="goBack()">⬅ Back</button>
+
+</div>
 
 <!-- QR Scanner -->
 <script src="https://unpkg.com/html5-qrcode"></script>
 <script src="script.js"></script>
-
 </body>
 </html>
