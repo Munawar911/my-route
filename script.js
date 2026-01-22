@@ -90,3 +90,27 @@ function goBack() {
 // ---------------- AUTO LOAD ----------------
 if (document.getElementById("parcelList")) loadParcels();
 if (document.getElementById("parcelDetail")) loadParcelDetail();
+function saveParcel() {
+  let cn = document.getElementById("cn").value;
+  let sender = document.getElementById("sender").value;
+  let receiver = document.getElementById("receiver").value;
+  let city = document.getElementById("city").value;
+  let lat = document.getElementById("lat").value;
+  let lng = document.getElementById("lng").value;
+
+  if (!cn || !receiver) {
+    alert("CN and Receiver required");
+    return;
+  }
+
+  parcels.push({
+    cn, sender, receiver, city,
+    lat: parseFloat(lat),
+    lng: parseFloat(lng)
+  });
+
+  localStorage.setItem("parcels", JSON.stringify(parcels));
+  alert("Parcel Added Successfully");
+
+  window.location.href = "dashboard.html";
+}
