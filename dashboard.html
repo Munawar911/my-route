@@ -1,24 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>My Route - Dashboard</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-  <div class="container">
-    <h2>Parcel List</h2>
-<button onclick="window.location.href='add.html'">➕ Add Parcel</button>
-    <input type="text" id="searchBox" placeholder="Search by CN"
-           onkeyup="searchParcel()">
+<body onload="loadParcels()">
 
-    <ul id="parcelList"></ul>
+<h2>Dashboard</h2>
 
-    <button onclick="logout()">Logout</button>
-  </div>
+<!-- SUMMARY -->
+<div class="summary">
+  <p><b>Delivered Parcels:</b> <span id="deliveredCount">0</span></p>
+  <p><b>Total Amount:</b> Rs. <span id="deliveredAmount">0</span></p>
+</div>
 
-  <script src="script.js"></script>
+<!-- ACTION BUTTONS -->
+<button onclick="location.href='add.html'">➕ Add Parcel</button>
+
+<input type="text" id="searchInput" placeholder="Search CN / Name">
+<button onclick="searchParcel()">🔍 Search</button>
+
+<select onchange="filterStatus(this.value)">
+  <option value="All">All</option>
+  <option value="Pending">Pending</option>
+  <option value="Delivered">Delivered</option>
+  <option value="Returned">Returned</option>
+</select>
+
+<ul id="parcelList"></ul>
+
+<script src="script.js"></script>
 </body>
 </html>
