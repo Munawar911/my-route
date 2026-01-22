@@ -22,6 +22,12 @@
 
 <input type="text" id="searchInput" placeholder="Search CN / Name">
 <button onclick="searchParcel()">🔍 Search</button>
+<select onchange="filterStatus(this.value)">
+  <option value="All">All</option>
+  <option value="Pending">Pending</option>
+  <option value="Delivered">Delivered</option>
+  <option value="Returned">Returned</option>
+</select>
 
 <select onchange="filterStatus(this.value)">
   <option value="All">All</option>
