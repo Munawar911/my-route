@@ -1,3 +1,8 @@
+// Load parcels from storage
+let parcels = JSON.parse(localStorage.getItem("parcels")) || [
+  { cn: "CN001", sender: "Ali", receiver: "Ahmed", city: "Karachi", lat: 24.8607, lng: 67.0011 },
+  { cn: "CN002", sender: "Sara", receiver: "Bilal", city: "Lahore", lat: 31.5204, lng: 74.3587 }
+];
 // ---------------- LOGIN ----------------
 function login() {
   let user = document.getElementById("username").value;
