@@ -36,3 +36,13 @@ function loadParcels(filtered = parcels) {
   document.getElementById("deliveredCount").innerText = deliveredCount;
   document.getElementById("deliveredAmount").innerText = deliveredAmount;
 }
+function searchParcel() {
+  let q = document.getElementById("searchInput").value.toLowerCase();
+
+  let result = parcels.filter(p =>
+    p.cn.toLowerCase().includes(q) ||
+    p.name.toLowerCase().includes(q)
+  );
+
+  loadParcels(result);
+}
