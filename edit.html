@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Parcel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Edit Parcel</h2>
+
+  <input type="text" id="cn" disabled>
+  <input type="text" id="sender" placeholder="Sender Name">
+  <input type="text" id="receiver" placeholder="Receiver Name">
+  <input type="text" id="city" placeholder="City">
+  <input type="number" id="lat" placeholder="Latitude">
+  <input type="number" id="lng" placeholder="Longitude">
+
+  <button onclick="updateParcel()">Update Parcel</button>
+  <button onclick="goBack()">Cancel</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
