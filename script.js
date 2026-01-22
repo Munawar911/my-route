@@ -18,12 +18,13 @@ function loadParcels(filtered = parcels) {
     let li = document.createElement("li");
 
     li.innerHTML = `
-      <b>${p.cn}</b> - ${p.name}<br>
-      Rs. ${p.amount} | ${p.status}<br>
+  <b>${p.cn}</b> - ${p.name}<br>
+  Rs. ${p.amount} |
+  <span class="status ${p.status}">${p.status}</span><br>
 
-      <a href="tel:${p.contact}">📞 Call</a> |
-      <a href="https://wa.me/${p.contact}" target="_blank">💬 WhatsApp</a>
-    `;
+  <a href="tel:${p.contact}">📞 Call</a> |
+  <a href="https://wa.me/${p.contact}" target="_blank">💬 WhatsApp</a>
+`;
 
     li.onclick = () => {
       localStorage.setItem("selectedIndex", i);
