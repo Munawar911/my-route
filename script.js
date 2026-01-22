@@ -37,6 +37,15 @@ function loadParcels(filtered = parcels) {
   document.getElementById("deliveredAmount").innerText = deliveredAmount;
 }
 function searchParcel() {
+function filterStatus(status) {
+  if (status === "All") {
+    loadParcels(parcels);
+    return;
+  }
+
+  let result = parcels.filter(p => p.status === status);
+  loadParcels(result);
+}
   let q = document.getElementById("searchInput").value.toLowerCase();
 
   let result = parcels.filter(p =>
