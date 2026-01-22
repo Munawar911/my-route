@@ -1,27 +1,38 @@
-function saveParcel() {
-  let cn = document.getElementById("cn").value;
-  let name = document.getElementById("name").value;
-  let address = document.getElementById("address").value;
-  let contact = document.getElementById("contact").value;
-  let amount = document.getElementById("amount").value;
-  let status = document.getElementById("status").value;
+let parcels = JSON.parse(localStorage.getItem("parcels")) || [];
 
-  if (!cn || !name || !contact || !amount) {
-    alert("All fields required hain");
-    return;
-  }
+function loadParcels(filtered = parcels) {
+  let list = document.getElementById("parcelList");
+  if (!list) return;
 
-  let parcels = JSON.parse(localStorage.getItem("parcels")) || [];
+  list.innerHTML = "";
 
-  parcels.push({
-    cn,
-    name,
-    address,
-    contact,
-    amount,
-    status
+  let deliveredCount = 0;
+  let deliveredAmount = 0;
+
+  filtered.forEach((p, i) => {
+    if (p.status === "Delivered") {
+      deliveredCount++;
+      deliveredAmount += Number(p.amount);
+    }
+
+    let li = document.createElement("li");
+
+    li.innerHTML = `
+      <b>${p.cn}</b> - ${p.name}<br>
+      Rs. ${p.amount} | ${p.status}<br>
+
+      <a href="tel:${p.contact}">📞 Call</a> |
+      <a href="https://wa.me/${p.contact}" target="_blank">💬 WhatsApp</a>
+    `;
+
+    li.onclick = () => {
+      localStorage.setItem("selectedIndex", i);
+      location.href = "detail.html";
+    };
+
+    list.appendChild(li);
   });
 
-  localStorage.setItem("parcels", JSON.stringify(parcels));
-  location.href = "dashboard.html";
+  document.getElementById("deliveredCount").innerText = deliveredCount;
+  document.getElementById("deliveredAmount").innerText = deliveredAmount;
 }
