@@ -8,14 +8,19 @@
 
 <h2>Add Parcel</h2>
 
+<!-- 1️⃣ Name first -->
+<input type="text" id="name" placeholder="Customer Name">
+
+<!-- 2️⃣ QR / Barcode scan -->
 <input type="text" id="cn" placeholder="Scan QR / Barcode" readonly>
 <button onclick="startScan()">📷 Scan QR / Barcode</button>
 
-<input type="text" id="name" placeholder="Customer Name">
+<!-- 3️⃣ Other fields -->
 <input type="text" id="address" placeholder="Address">
 <input type="text" id="contact" placeholder="Contact Number">
 <input type="number" id="amount" placeholder="Amount (COD)">
 
+<!-- 4️⃣ Status -->
 <select id="status">
   <option value="Pending">Pending</option>
   <option value="Delivered">Delivered</option>
@@ -25,7 +30,9 @@
 <button onclick="saveParcel()">Save Parcel</button>
 <button onclick="goBack()">Back</button>
 
+<!-- QR Scanner -->
 <script src="https://unpkg.com/html5-qrcode"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
